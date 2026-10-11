@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advertising Showcase</title>
+    <meta name="theme-color" content="#070b17">
+    <meta name="description" content="A showcase of Monetag and Adsterra advertising formats.">
+    <link rel="stylesheet" href="style.css">
+    <script src="MoneTag/MoneTag.js"></script>
+    <script src="AdsTerra/Banners.js"></script>
+</head>
+
+<body>
+    <div class="page-shell">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="orb orb-three"></div>
+
+        <header class="topbar">
+            <div class="brand">
+                <span class="brand-mark">AD</span>
+                <div>
+                    <p class="eyebrow">Independent network previews</p>
+                    <h1>Ad Studio</h1>
+                </div>
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="panel hero-panel">
+                <div class="section-heading">
+                    <span class="chip chip-monetag">Monetag</span>
+                    <h2>Pop &amp; Side Notifications</h2>
+                    <p class="section-description">Notification formats delivered by Monetag.</p>
+                </div>
+
+                <div class="countdown-wrap">
+                    <div class="countdown-ring" aria-hidden="true"></div>
+                    <div id="Monetag_Para" class="countdown-text" role="status" aria-live="polite"></div>
+                </div>
+
+                <script>
+                    let Time = 5;
+                    const Monetag_Para = document.getElementById("Monetag_Para");
+
+                    function Ads() {
+                        Side_Notification();
+                        Pop_Notification();
+                    }
+
+                    Monetag_Para.textContent = `Ads will start in ${Time} seconds`;
+
+                    const countdown = setInterval(() => {
+                        Time--;
+
+                        if (Time > 0) {
+                            Monetag_Para.textContent =
+                                `Ads will start in ${Time} seconds`;
+                        } else {
+                            clearInterval(countdown);
+                            Monetag_Para.textContent = "Starting ads...";
+                            Ads();
+                        }
+                    }, 1000);
+                </script>
+            </section>
+
+            <section class="panel cta-panel">
+                <div class="section-heading">
+                    <span class="chip chip-monetag">Monetag Direct Link</span>
+                    <h2>Visit the offer</h2>
+                    <p class="section-description">This link is provided separately by Monetag.</p>
+                </div>
+                <a class="cta-link" href="https://uplcm.com/4/10648428" target="_blank" rel="noopener noreferrer">Visit the offer</a>
+            </section>
+
+            <section class="panel ads-panel">
+                <div class="section-heading">
+                    <span class="chip chip-adsterra">Adsterra</span>
+                    <h2>Banner Ads</h2>
+                    <p class="section-description">Display banner formats delivered independently by Adsterra.</p>
+                </div>
+
+                <div class="adsterra-direct-link">
+                    <div>
+                        <span class="ad-label">Adsterra Direct Link</span>
+                        <p class="section-description">Open the Adsterra offer in a new tab.</p>
+                    </div>
+                    <a class="cta-link cta-link--adsterra" href="https://www.profitableratecpmnetwork.com/th2dvsi0?key=25bad5ab5988e87a223ab74828d17970" target="_blank" rel="noopener noreferrer">Visit Adsterra offer</a>
+                </div>
+
+                <div class="ad-grid">
+                    <div class="ad-card ad-card--728">
+                        <div class="ad-label">Banner - 728x90</div>
+                        <script>document.currentScript.parentElement.appendChild(Banner_728x90())</script>
+                    </div>
+
+                    <div class="ad-card ad-card--300x160">
+                        <div class="ad-label">Banner - 300x160</div>
+                        <script>document.currentScript.parentElement.appendChild(Banner_300x160())</script>
+                    </div>
+
+                    <div class="ad-card ad-card--300x250">
+                        <div class="ad-label">Banner - 300x250</div>
+                        <script>document.currentScript.parentElement.appendChild(Banner_300x250())</script>
+                    </div>
+
+                    <div class="ad-card ad-card--320x50">
+                        <div class="ad-label">Banner - 320x50</div>
+                        <script>document.currentScript.parentElement.appendChild(Banner_320x50())</script>
+                    </div>
+
+                    <div class="ad-card ad-card--468x60">
+                        <div class="ad-label">Banner - 468x60</div>
+                        <script>document.currentScript.parentElement.appendChild(Banner_468x60())</script>
+                    </div>
+
+                    <div class="ad-card ad-card--600x160">
+                        <div class="ad-label">Banner - 600x160</div>
+                        <script>document.currentScript.parentElement.appendChild(Banner_600x160())</script>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="page-footer">
+            <span>Monetag and Adsterra are separate advertising networks.</span>
+            <span>Ad previews are served by their respective providers.</span>
+        </footer>
+    </div>
+</body>
+
+</html>
