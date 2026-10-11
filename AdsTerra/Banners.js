@@ -1,4 +1,4 @@
-function Banner_728x90() {
+export function Banner_728x90() {
     var Container = document.createElement("div");
     Container.style.width = "728px";
     Container.style.maxWidth = "100%";
@@ -39,7 +39,7 @@ function Banner_728x90() {
     return Container;
 }
 
-function Banner_300x250() {
+export function Banner_300x250() {
     var Container = document.createElement("div");
     Container.style.width = "300px";
     Container.style.maxWidth = "100%";
@@ -80,7 +80,7 @@ function Banner_300x250() {
     return Container;
 }
 
-function Banner_468x60() {
+export function Banner_468x60() {
     var Container = document.createElement("div");
     Container.style.width = "468px";
     Container.style.maxWidth = "100%";
@@ -121,7 +121,7 @@ function Banner_468x60() {
     return Container;
 }
 
-function Banner_320x50() {
+export function Banner_320x50() {
     var Container = document.createElement("div");
     Container.style.width = "320px";
     Container.style.maxWidth = "100%";
@@ -162,7 +162,7 @@ function Banner_320x50() {
     return Container;
 }
 
-function Banner_600x160() {
+export function Banner_600x160() {
     var Container = document.createElement("div");
     Container.style.width = "600px";
     Container.style.maxWidth = "100%";
@@ -203,7 +203,7 @@ function Banner_600x160() {
     return Container;
 }
 
-function Banner_300x160() {
+export function Banner_300x160() {
     var Container = document.createElement("div");
     Container.style.width = "300px";
     Container.style.maxWidth = "100%";
