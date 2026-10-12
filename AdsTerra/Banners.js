@@ -1,4 +1,4 @@
-export function Banner_728x90() {
+function Banner_728x90() {
     var Container = document.createElement("div");
     Container.style.width = "728px";
     Container.style.maxWidth = "100%";
@@ -23,7 +23,7 @@ export function Banner_728x90() {
         </head>
         <body style="margin:0;padding:0">
             <script>
-                var atOptions = {
+                window.atOptions = {
                     key: "fa5056900c1366811b13cfffc43d6f6e",
                     format: "iframe",
                     height: 90,
@@ -39,7 +39,7 @@ export function Banner_728x90() {
     return Container;
 }
 
-export function Banner_300x250() {
+function Banner_300x250() {
     var Container = document.createElement("div");
     Container.style.width = "300px";
     Container.style.maxWidth = "100%";
@@ -64,7 +64,7 @@ export function Banner_300x250() {
         </head>
         <body style="margin:0;padding:0">
             <script>
-                var atOptions = {
+                window.atOptions = {
                     key: "b3bdd03ca6e806cb243a9dcb64319ab5",
                     format: "iframe",
                     height: 250,
@@ -80,7 +80,7 @@ export function Banner_300x250() {
     return Container;
 }
 
-export function Banner_468x60() {
+function Banner_468x60() {
     var Container = document.createElement("div");
     Container.style.width = "468px";
     Container.style.maxWidth = "100%";
@@ -105,7 +105,7 @@ export function Banner_468x60() {
         </head>
         <body style="margin:0;padding:0">
             <script>
-                var atOptions = {
+                window.atOptions = {
                     key: "1ff315f859261b761d612636f35a9c2b",
                     format: "iframe",
                     height: 60,
@@ -121,7 +121,7 @@ export function Banner_468x60() {
     return Container;
 }
 
-export function Banner_320x50() {
+function Banner_320x50() {
     var Container = document.createElement("div");
     Container.style.width = "320px";
     Container.style.maxWidth = "100%";
@@ -146,7 +146,7 @@ export function Banner_320x50() {
         </head>
         <body style="margin:0;padding:0">
             <script>
-                var atOptions = {
+                window.atOptions = {
                     key: "39ba879dd500839ef9286677b8c2daf6",
                     format: "iframe",
                     height: 50,
@@ -162,7 +162,7 @@ export function Banner_320x50() {
     return Container;
 }
 
-export function Banner_600x160() {
+function Banner_600x160() {
     var Container = document.createElement("div");
     Container.style.width = "600px";
     Container.style.maxWidth = "100%";
@@ -187,7 +187,7 @@ export function Banner_600x160() {
         </head>
         <body style="margin:0;padding:0">
             <script>
-                var atOptions = {
+                window.atOptions = {
                     key: "8c21d3b7003c70b0ee65fe440fa3bf75",
                     format: "iframe",
                     height: 160,
@@ -203,7 +203,7 @@ export function Banner_600x160() {
     return Container;
 }
 
-export function Banner_300x160() {
+function Banner_300x160() {
     var Container = document.createElement("div");
     Container.style.width = "300px";
     Container.style.maxWidth = "100%";
@@ -228,7 +228,7 @@ export function Banner_300x160() {
         </head>
         <body style="margin:0;padding:0">
             <script>
-                var atOptions = {
+                window.atOptions = {
                     key: "43dda0a851961be71ed3561bd1e9fd5d",
                     format: "iframe",
                     height: 160,
@@ -242,4 +242,22 @@ export function Banner_300x160() {
     `;
 
     return Container;
+}
+
+function Native_Banner() {
+    var Container = document.getElementById("adsterra-native-slot");
+
+    if (!(Container instanceof HTMLElement)) {
+        throw new TypeError("Native_Banner requires the Adsterra native ad slot.");
+    }
+
+    var AdContainer = document.createElement("div");
+    AdContainer.id = "container-394114e1f665cb427f01a700a906ea54";
+    Container.appendChild(AdContainer);
+
+    var Script = document.createElement("script");
+    Script.async = true;
+    Script.dataset.cfasync = "false";
+    Script.src = "https://bendspecimen.com/394114e1f665cb427f01a700a906ea54/invoke.js";
+    Container.appendChild(Script);
 }
