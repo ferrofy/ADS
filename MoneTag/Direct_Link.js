@@ -1,4 +1,4 @@
-function Monetag_Link(Clicks, Link = "https://uplcm.com/4/10648428", Text = "Click Me", Container = GetMonetagLinkContainer()) {
+function Monetag_Link(Clicks, Link = "https://uplcm.com/4/10648428", Text = "Click Me", Container) {
     let Click = 0
     const Button = document.createElement('button')
     Button.innerText = Text
@@ -10,7 +10,9 @@ function Monetag_Link(Clicks, Link = "https://uplcm.com/4/10648428", Text = "Cli
         }
         Click++
     })
-    Container.appendChild(Button)
+    const Target = Container || GetMonetagLinkContainer()
+    Target.appendChild(Button)
+    return Button
 
 }
 
