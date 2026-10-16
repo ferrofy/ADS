@@ -1,7 +1,6 @@
-const Button = document.createElement('button')
-
-function Link(Clicks, Link = "https://uplcm.com/4/10648428", Text = "Click Me") {
+function Monetag_Link(Clicks, Link = "https://uplcm.com/4/10648428", Text = "Click Me", Container = document.body) {
     let Click = 0
+    const Button = document.createElement('button')
     Button.innerText = Text
     Button.addEventListener("click", () => {
         if (Click < Clicks) {
@@ -11,6 +10,6 @@ function Link(Clicks, Link = "https://uplcm.com/4/10648428", Text = "Click Me") 
         }
         Click++
     })
-    document.body.appendChild(Button)
+    Container.appendChild(Button)
 
 }
