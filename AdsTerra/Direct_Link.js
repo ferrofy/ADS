@@ -1,4 +1,4 @@
-function Adsterra_Link(Clicks, Link = "https://bendspecimen.com/th2dvsi0?key=25bad5ab5988e87a223ab74828d17970", Text = "Click Me", Container = document.body) {
+function Adsterra_Link(Clicks, Link = "https://bendspecimen.com/th2dvsi0?key=25bad5ab5988e87a223ab74828d17970", Text = "Click Me", Container = GetAdsterraLinkContainer()) {
     let Click = 0
     const Button = document.createElement('button')
     Button.innerText = Text
@@ -12,4 +12,8 @@ function Adsterra_Link(Clicks, Link = "https://bendspecimen.com/th2dvsi0?key=25b
     })
     Container.appendChild(Button)
 
+}
+
+function GetAdsterraLinkContainer() {
+    return document.currentScript && document.currentScript.parentElement || document.body;
 }

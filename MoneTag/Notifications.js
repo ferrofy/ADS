@@ -19,3 +19,11 @@ function Pop_Notification() {
             [document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script'))
         )
 }
+
+function SideNotification() {
+    return Side_Notification();
+}
+
+function PopNotification() {
+    return Pop_Notification();
+}

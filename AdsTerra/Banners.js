@@ -245,10 +245,38 @@ function Banner_300x160() {
 }
 
 function Native_Banner() {
-    var Container = document.getElementById("adsterra-native-slot");
+    return NativeBanner(document.getElementById("adsterra-native-slot"));
+}
 
-    if (!(Container instanceof HTMLElement)) {
-        throw new TypeError("Native_Banner requires the Adsterra native ad slot.");
+function Banner728x90(Target) {
+    return AddBanner(Banner_728x90, Target);
+}
+
+function Banner300x160(Target) {
+    return AddBanner(Banner_300x160, Target);
+}
+
+function Banner300x250(Target) {
+    return AddBanner(Banner_300x250, Target);
+}
+
+function Banner320x50(Target) {
+    return AddBanner(Banner_320x50, Target);
+}
+
+function Banner468x60(Target) {
+    return AddBanner(Banner_468x60, Target);
+}
+
+function Banner600x160(Target) {
+    return AddBanner(Banner_600x160, Target);
+}
+
+function NativeBanner(Target) {
+    var Container = ResolveAdTarget(Target);
+
+    if (!Container) {
+        throw new TypeError("NativeBanner requires a target element.");
     }
 
     var AdContainer = document.createElement("div");
@@ -260,4 +288,34 @@ function Native_Banner() {
     Script.dataset.cfasync = "false";
     Script.src = "https://bendspecimen.com/394114e1f665cb427f01a700a906ea54/invoke.js";
     Container.appendChild(Script);
+    return AdContainer;
+}
+
+function AddBanner(CreateBanner, Target) {
+    var Container = ResolveAdTarget(Target);
+
+    if (!Container) {
+        throw new TypeError("A banner target element is required.");
+    }
+
+    var Banner = CreateBanner();
+    Container.appendChild(Banner);
+    return Banner;
+}
+
+function ResolveAdTarget(Target) {
+    if (typeof Target === "string") {
+        Target = document.querySelector(Target);
+    }
+
+    if (Target === undefined) {
+        var CurrentScript = document.currentScript;
+        Target = CurrentScript && CurrentScript.parentElement;
+    }
+
+    if (Target instanceof HTMLElement) {
+        return Target;
+    }
+
+    return null;
 }

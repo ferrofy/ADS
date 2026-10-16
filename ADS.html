@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A showcase of Monetag and Adsterra advertising formats.">
     <title>Ad Studio</title>
+    <script src="https://cdn.jsdelivr.net/gh/ferrofy/ADS@main/MoneTag/Notifications.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ferrofy/ADS@main/MoneTag/Direct_Link.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ferrofy/ADS@main/AdsTerra/Direct_Link.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ferrofy/ADS@main/AdsTerra/Banners.js"></script>
     <style>
         body {
             margin: 0;
@@ -68,44 +72,50 @@
 
         <section>
             <h2>Monetag Direct Link</h2>
-            <div id="monetag-direct-link"></div>
+            <div id="monetag-direct-link">
+                <script>Monetag_Link(0, undefined, "Visit the offer");</script>
+            </div>
         </section>
 
         <section>
             <h2>Adsterra Ads</h2>
             <p>Banner formats delivered by Adsterra.</p>
             <h3>Adsterra Direct Link</h3>
-            <div id="adsterra-direct-link"></div>
+            <div id="adsterra-direct-link">
+                <script>Adsterra_Link(0, undefined, "Visit Adsterra offer");</script>
+            </div>
 
             <div class="ad-card">
                 <div class="ad-label">Native Banner</div>
-                <div id="adsterra-native-slot"></div>
+                <div id="adsterra-native-slot">
+                    <script>NativeBanner();</script>
+                </div>
             </div>
 
             <div class="ad-grid">
                 <div class="ad-card">
                     <div class="ad-label">Banner - 728x90</div>
-                    <div id="banner-728"></div>
+                    <div id="banner-728"><script>Banner728x90();</script></div>
                 </div>
                 <div class="ad-card">
                     <div class="ad-label">Banner - 300x160</div>
-                    <div id="banner-300x160"></div>
+                    <div id="banner-300x160"><script>Banner300x160();</script></div>
                 </div>
                 <div class="ad-card">
                     <div class="ad-label">Banner - 300x250</div>
-                    <div id="banner-300x250"></div>
+                    <div id="banner-300x250"><script>Banner300x250();</script></div>
                 </div>
                 <div class="ad-card">
                     <div class="ad-label">Banner - 320x50</div>
-                    <div id="banner-320x50"></div>
+                    <div id="banner-320x50"><script>Banner320x50();</script></div>
                 </div>
                 <div class="ad-card">
                     <div class="ad-label">Banner - 468x60</div>
-                    <div id="banner-468x60"></div>
+                    <div id="banner-468x60"><script>Banner468x60();</script></div>
                 </div>
                 <div class="ad-card">
                     <div class="ad-label">Banner - 600x160</div>
-                    <div id="banner-600x160"></div>
+                    <div id="banner-600x160"><script>Banner600x160();</script></div>
                 </div>
             </div>
         </section>
@@ -116,22 +126,7 @@
         </footer>
     </main>
 
-    <script src="MoneTag/Notifications.js"></script>
-    <script src="MoneTag/Direct_Link.js"></script>
-    <script src="AdsTerra/Direct_Link.js"></script>
-    <script src="AdsTerra/Banners.js"></script>
     <script>
-        Monetag_Link(0, undefined, "Visit the offer", document.getElementById("monetag-direct-link"));
-        Adsterra_Link(0, undefined, "Visit Adsterra offer", document.getElementById("adsterra-direct-link"));
-
-        Native_Banner();
-        document.getElementById("banner-728").appendChild(Banner_728x90());
-        document.getElementById("banner-300x160").appendChild(Banner_300x160());
-        document.getElementById("banner-300x250").appendChild(Banner_300x250());
-        document.getElementById("banner-320x50").appendChild(Banner_320x50());
-        document.getElementById("banner-468x60").appendChild(Banner_468x60());
-        document.getElementById("banner-600x160").appendChild(Banner_600x160());
-
         let secondsUntilAds = 5;
         const monetagStatus = document.getElementById("Monetag_Para");
         monetagStatus.textContent = `Ads will start in ${secondsUntilAds} seconds`;
@@ -145,8 +140,8 @@
 
             clearInterval(countdown);
             monetagStatus.textContent = "Starting ads...";
-            Side_Notification();
-            Pop_Notification();
+            SideNotification();
+            PopNotification();
         }, 1000);
     </script>
 </body>
